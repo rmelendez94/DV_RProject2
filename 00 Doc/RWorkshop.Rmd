@@ -1,0 +1,11 @@
+---
+title: "DV_RProject2"
+output: html_document
+---
+**Authors: Rolando Melendez, Hyunji Seo, Catherine Tu**
+
+###This is how our RStudio is configured:
+```{r}
+sessionInfo()
+```
+***
