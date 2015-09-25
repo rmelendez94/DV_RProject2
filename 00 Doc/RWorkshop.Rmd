@@ -9,3 +9,8 @@ output: html_document
 sessionInfo()
 ```
 ***
+```{r}
+#Shows the subset and summary of the data frame
+source("../01 Data/R_Load.R", echo = TRUE)
+```
+

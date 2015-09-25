@@ -83,6 +83,97 @@ img {
 ##  [5] stringi_0.5-5   rmarkdown_0.8   knitr_1.11      stringr_1.0.0  
 ##  [9] digest_0.6.8    evaluate_0.7.2</code></pre>
 <hr />
+<pre class="r"><code>#Shows the subset and summary of the data frame
+source(&quot;../01 Data/R_Load.R&quot;, echo = TRUE)</code></pre>
+<pre><code>## 
+## &gt; require(&quot;jsonlite&quot;)</code></pre>
+<pre><code>## Loading required package: jsonlite
+## 
+## Attaching package: 'jsonlite'
+## 
+## The following object is masked from 'package:utils':
+## 
+##     View</code></pre>
+<pre><code>## 
+## &gt; require(&quot;RCurl&quot;)</code></pre>
+<pre><code>## Loading required package: RCurl
+## Loading required package: bitops</code></pre>
+<pre><code>## 
+## &gt; df &lt;- data.frame(fromJSON(getURL(URLencode(&quot;129.152.144.84:5001/rest/native/?query=\&quot;select * from BNKMKTG\&quot;&quot;), 
+## +     httpheader = c(DB = &quot;jdbc:ora ...&quot; ... [TRUNCATED] 
+## 
+## &gt; head(df)
+##          JOB  MARITAL        EDUCATION DFLT HOUSING LOAN   CONTACT MONTH
+## 1 bluecollar  married          basic9y   no     yes   no  cellular   may
+## 2      admin  married          unknown   no     yes   no telephone   apr
+## 3   services  married       highschool   no     yes   no  cellular   apr
+## 4 bluecollar divorced          basic6y   no     yes   no  cellular   may
+## 5      admin   single universitydegree   no     yes   no  cellular   jul
+## 6 technician divorced          unknown   no     yes  yes  cellular   oct
+##   DAY_OF_WEEK    POUTCOME   Y AGE DURATION CAMPAIGN PDAYS PREVIOUS
+## 1         wed nonexistent  no  37      204        2   999        0
+## 2         wed     success yes  52      403        1     6        1
+## 3         mon nonexistent  no  46      180        1   999        0
+## 4         wed nonexistent  no  42       16        2   999        0
+## 5         mon nonexistent  no  35      447        3   999        0
+## 6         thu nonexistent  no  49       81        1   999        0
+##   EMP_VAR_RATE CONS_PRICE_IDX CONS_CONF_IDX EURIBOR3M NR_EMPLOYED
+## 1         -1.8         92.893         -46.2     1.334      5099.1
+## 2         -1.8         93.749         -34.6     0.654      5008.7
+## 3         -1.8         93.075         -47.1     1.405      5099.1
+## 4         -1.8         92.893         -46.2     1.281      5099.1
+## 5          1.4         93.918         -42.7     4.960      5228.1
+## 6         -3.4         92.431         -26.9     0.754      5017.5
+## 
+## &gt; summary(df)
+##          JOB           MARITAL                  EDUCATION   
+##  admin     :1012   divorced: 446   universitydegree  :1264  
+##  bluecollar: 884   married :2509   highschool        : 921  
+##  technician: 691   single  :1153   basic9y           : 574  
+##  services  : 393   unknown :  11   professionalcourse: 535  
+##  management: 324                   basic4y           : 429  
+##  retired   : 166                   basic6y           : 228  
+##  (Other)   : 649                   (Other)           : 168  
+##       DFLT         HOUSING          LOAN           CONTACT    
+##  no     :3315   no     :1839   no     :3349   cellular :2652  
+##  unknown: 803   unknown: 105   unknown: 105   telephone:1467  
+##  yes    :   1   yes    :2175   yes    : 665                   
+##                                                               
+##                                                               
+##                                                               
+##                                                               
+##      MONTH      DAY_OF_WEEK        POUTCOME      Y             AGE       
+##  may    :1378   fri:768     failure    : 454   no :3668   Min.   :18.00  
+##  jul    : 711   mon:855     nonexistent:3523   yes: 451   1st Qu.:32.00  
+##  aug    : 636   thu:860     success    : 142              Median :38.00  
+##  jun    : 530   tue:841                                   Mean   :40.11  
+##  nov    : 446   wed:795                                   3rd Qu.:47.00  
+##  apr    : 215                                             Max.   :88.00  
+##  (Other): 203                                                            
+##     DURATION         CAMPAIGN          PDAYS          PREVIOUS     
+##  Min.   :   0.0   Min.   : 1.000   Min.   :  0.0   Min.   :0.0000  
+##  1st Qu.: 103.0   1st Qu.: 1.000   1st Qu.:999.0   1st Qu.:0.0000  
+##  Median : 181.0   Median : 2.000   Median :999.0   Median :0.0000  
+##  Mean   : 256.8   Mean   : 2.537   Mean   :960.4   Mean   :0.1903  
+##  3rd Qu.: 317.0   3rd Qu.: 3.000   3rd Qu.:999.0   3rd Qu.:0.0000  
+##  Max.   :3643.0   Max.   :35.000   Max.   :999.0   Max.   :6.0000  
+##                                                                    
+##   EMP_VAR_RATE      CONS_PRICE_IDX  CONS_CONF_IDX     EURIBOR3M    
+##  Min.   :-3.40000   Min.   :92.20   Min.   :-50.8   Min.   :0.635  
+##  1st Qu.:-1.80000   1st Qu.:93.08   1st Qu.:-42.7   1st Qu.:1.334  
+##  Median : 1.10000   Median :93.75   Median :-41.8   Median :4.857  
+##  Mean   : 0.08497   Mean   :93.58   Mean   :-40.5   Mean   :3.621  
+##  3rd Qu.: 1.40000   3rd Qu.:93.99   3rd Qu.:-36.4   3rd Qu.:4.961  
+##  Max.   : 1.40000   Max.   :94.77   Max.   :-26.9   Max.   :5.045  
+##                                                                    
+##   NR_EMPLOYED  
+##  Min.   :4964  
+##  1st Qu.:5099  
+##  Median :5191  
+##  Mean   :5166  
+##  3rd Qu.:5228  
+##  Max.   :5228  
+## </code></pre>
 </div>
 
 
