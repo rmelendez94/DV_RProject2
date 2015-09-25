@@ -1,17 +1,15 @@
 require(tidyr)
 require(dplyr)
-
-
-tbl_df(df)
-View(df)
-
-ahp <- df %>% group_by(HOUSING, LOAN) %>% summarize()
-
-ahp <- df %>% select(AGE, HOUSING, LOAN, Y) %>% mutate(HASLOAN = ifelse(HOUSING == "yes" | LOAN == "yes", "yes", ifelse(HOUSING == "unknown" | LOAN == "unknown", "unknown", "no")))
-View(ahp)
-
 require(extrafont)
 require(ggplot2)
+
+#tbl_df(df)
+#View(df)
+
+#Not sure how to use group_by yet
+#ahp <- df %>% group_by(HOUSING, LOAN) %>% summarize()
+
+ahp <- df %>% select(AGE, HOUSING, LOAN, Y) %>% mutate(HASLOAN = ifelse(HOUSING == "yes" | LOAN == "yes", "yes", ifelse(HOUSING == "unknown" | LOAN == "unknown", "unknown", "no")))
 
 #Create the Point Plot; Loan/Age
 ggplot() + 
