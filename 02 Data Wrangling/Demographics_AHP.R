@@ -5,8 +5,10 @@ require(dplyr)
 tbl_df(df)
 View(df)
 
-ahp <- df %>% select(AGE, HOUSING, LOAN, Y) %>% arrange(Y) %>% mutate()
+ahp <- df %>% group_by(HOUSING, LOAN) %>% summarize()
 
+ahp <- df %>% select(AGE, HOUSING, LOAN, Y) %>% mutate(HASLOAN = ifelse(HOUSING == "yes" | LOAN == "yes", "yes", ifelse(HOUSING == "unknown" | LOAN == "unknown", "unknown", "no")))
+View(ahp)
 
 require(extrafont)
 require(ggplot2)
@@ -14,16 +16,16 @@ require(ggplot2)
 #Create the Point Plot; Loan/Age
 ggplot() + 
   coord_cartesian() + 
-  scale_x_continuous() +
-  scale_y_discrete() +
+  scale_x_discrete() +
+  scale_y_continuous() +
   facet_grid(LOAN~HOUSING, labeller=label_both) +
   labs(title='Portuguese Bank Marketing Campaign Effectiveness') +
-  labs(x="Age", y=paste("Has Other Loans")) +
+  labs(x="Has Other Loan(s)", y=paste("Age")) +
   layer(data=ahp, 
-        mapping=aes(x=as.numeric(as.character(AGE)), y=as.character(LOAN), color=Y), 
+        mapping=aes(x=as.character(HASLOAN), y=as.numeric(as.character(AGE)), color=Y, fill = Y), 
         stat="identity",
         stat_params=list(),
         geom="point",
         geom_params=list(), 
-        position=position_jitter(width=0.3, height=0)
+        position=position_jitterdodge(jitter.width = 0.3)
   )
