@@ -13,4 +13,10 @@ sessionInfo()
 #Shows the subset and summary of the data frame
 source("../01 Data/R_Load.R", echo = TRUE)
 ```
-
+***
+Vis 1
+```{r}
+#Shows the subset and summary of the data frame
+source("../02 Data Wrangling/BankEffort_PD.R", echo = TRUE)
+```
+***
