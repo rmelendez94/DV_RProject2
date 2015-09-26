@@ -21,7 +21,7 @@ source("../02 Data Wrangling/BankEffort_PD.R", echo = TRUE)
 ```
 
 ####Method: 
-We took our original data frame and piped it to select in order to show only past marketing effectiveness, the duration of the marketing call, and the outcome of the whole campaign.
+We took our original data frame and piped it to select in order to show only past marketing effectiveness, the duration of the marketing call, and the outcome of the whole campaign. Then data was piped to group_by in order to have it groupd by past outcome, duration, and decision. Then we summarized the data with a count of how many people fell into each combination of categories and arranged them all by duration.
 We also saw it fit to seperate the data into indiviual yes or no for the outcome of the campiagn.
 For plotting those who said yes, we took our original data frame and piped it to select in order to show only past marketing effectiveness, the duration of the marketing call, and the outcome of the whole campaign, then piped that into filter to show only those who said yes.
 For plotting those who said no, we took our original data frame and piped it to select in order to show only past marketing effectiveness, the duration of the marketing call, and the outcome of the whole campaign, then piped that into filter to show only those who said no.

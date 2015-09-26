@@ -2,18 +2,19 @@ require(tidyr)
 require(dplyr)
 require(extrafont)
 require(ggplot2)
-
+# Uncomment the following to view the original data
 # tbl_df(df)
 # View(df)
 
-pd <- df %>% select(POUTCOME, DURATION, Y)
-#View(pd)
-ypd <- df %>% select(POUTCOME, DURATION, Y) %>% filter(Y=="yes")
-#View(ypd)
+# This shows how many total people had the same duration and past outcome, ex: 2 poeple with past failure and duration of 6 and said no to current term loan
+pd <- df %>% select(POUTCOME, DURATION, Y) %>% group_by(POUTCOME, DURATION, Y) %>% summarise(NumInCategory=n()) %>% arrange(DURATION)
+#View(pd) # Uncomment to view the results
+ypd <- df %>% select(POUTCOME, DURATION, Y) %>% filter(Y=="yes") 
+#View(ypd) # Uncomment to view the results
 npd <- df %>% select(POUTCOME, DURATION, Y) %>% filter(Y=="no")
-#View(npd)
+#View(npd) # Uncomment to view the results
 
-#Create the Point Plot; POUTCOME/DURATION
+# Create the Point Plot; POUTCOME/DURATION
 ggplot() + 
   coord_cartesian() + 
   scale_x_continuous() +
@@ -29,7 +30,7 @@ ggplot() +
         position=position_jitter(width=0, height=0.3)
   )
 
-#work on coloring the points
+# Create the Point Plot; POUTCOME/DURATION with only yes filtered 
 ggplot() + 
   coord_cartesian() + 
   scale_x_continuous() +
@@ -45,6 +46,7 @@ ggplot() +
         position=position_jitter(width=0, height=0.3)
   )
 
+# Create the Point Plot; POUTCOME/DURATION with only no filtered 
 ggplot() + 
   coord_cartesian() + 
   scale_x_continuous() +
