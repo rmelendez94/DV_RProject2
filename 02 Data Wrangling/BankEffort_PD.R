@@ -3,8 +3,8 @@ require(dplyr)
 require(extrafont)
 require(ggplot2)
 
-tbl_df(df)
-View(df)
+# tbl_df(df)
+# View(df)
 
 pd <- df %>% select(POUTCOME, DURATION, Y)
 #View(pd)
@@ -25,10 +25,11 @@ ggplot() +
         stat="identity",
         stat_params=list(),
         geom="point",
-        geom_params=list(), 
+        geom_params=list(alpha=.8), 
         position=position_jitter(width=0, height=0.3)
   )
 
+#work on coloring the points
 ggplot() + 
   coord_cartesian() + 
   scale_x_continuous() +
@@ -40,7 +41,7 @@ ggplot() +
         stat="identity",
         stat_params=list(),
         geom="point",
-        geom_params=list(), 
+        geom_params=list(colour="#0033CC", alpha=.55), 
         position=position_jitter(width=0, height=0.3)
   )
 
@@ -55,6 +56,6 @@ ggplot() +
         stat="identity",
         stat_params=list(),
         geom="point",
-        geom_params=list(), 
+        geom_params=list(colour="#CC0000", alpha=.55), 
         position=position_jitter(width=0, height=0.3)
   )

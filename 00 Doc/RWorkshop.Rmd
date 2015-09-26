@@ -14,9 +14,44 @@ sessionInfo()
 source("../01 Data/R_Load.R", echo = TRUE)
 ```
 ***
-Vis 1
+##Bank Effort Visualization
 ```{r}
 #Shows the subset and summary of the data frame
 source("../02 Data Wrangling/BankEffort_PD.R", echo = TRUE)
 ```
+
+####Method: 
+We took our original data frame and piped it to select in order to show only past marketing effectiveness, the duration of the marketing call, and the outcome of the whole campaign.
+We also saw it fit to seperate the data into indiviual yes or no for the outcome of the campiagn.
+For plotting those who said yes, we took our original data frame and piped it to select in order to show only past marketing effectiveness, the duration of the marketing call, and the outcome of the whole campaign, then piped that into filter to show only those who said yes.
+For plotting those who said no, we took our original data frame and piped it to select in order to show only past marketing effectiveness, the duration of the marketing call, and the outcome of the whole campaign, then piped that into filter to show only those who said no.
+
+####Findings:
+What we came to find out was that they contacted many people that had not been contacted in previos marketing campaigns. The longer the duration of the call, we noticed, the higher probablility there was for a positive outcome. Negative outcomes seem to have been clustered closer together at the low end of call duration. Another trend is semmingly apparent, if past marketing was a failure there was a high probability of failure in the current campaign. And success in past campaigns correlated with more success in the current campaign as well.
+
 ***
+
+##Demographics Visualization
+```{r}
+#Shows the subset and summary of the data frame
+source("../02 Data Wrangling/Demographics_AHP.R", echo = TRUE)
+```
+
+####Method:
+
+####Findings:
+
+***
+
+##Socioeconomic Visualization
+```{r}
+#Shows the subset and summary of the data frame
+source("../02 Data Wrangling/SocioEconomic_EC.R", echo = TRUE)
+```
+
+####Method:
+
+####Findings:
+
+***
+
