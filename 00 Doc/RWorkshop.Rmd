@@ -4,11 +4,20 @@ output: html_document
 ---
 **Authors: Rolando Melendez, Hyunji Seo, Catherine Tu**
 
-###This is how our RStudio is configured:
+##This is how our RStudio is configured:
 ```{r}
 sessionInfo()
 ```
 ***
+##Program file structure
+  00 Doc - contains .Rmd and .html 
+  
+  01 Data - contains the code to Extract, Transform, and Load our data 
+  
+  02 Data Wrangling - contains our workflows and the code for the visualizations 
+
+***  
+##Data summary and subset
 ```{r}
 #Shows the subset and summary of the data frame
 source("../01 Data/R_Load.R", echo = TRUE)
@@ -21,13 +30,13 @@ source("../02 Data Wrangling/BankEffort_PD.R", echo = TRUE)
 ```
 
 ####Method: 
-We took our original data frame and piped it to select in order to show only past marketing effectiveness, the duration of the marketing call, and the outcome of the whole campaign. Then data was piped to group_by in order to have it groupd by past outcome, duration, and decision. Then we summarized the data with a count of how many people fell into each combination of categories and arranged them all by duration.
-We also saw it fit to seperate the data into indiviual yes or no for the outcome of the campiagn.
-For plotting those who said yes, we took our original data frame and piped it to select in order to show only past marketing effectiveness, the duration of the marketing call, and the outcome of the whole campaign, then piped that into filter to show only those who said yes.
-For plotting those who said no, we took our original data frame and piped it to select in order to show only past marketing effectiveness, the duration of the marketing call, and the outcome of the whole campaign, then piped that into filter to show only those who said no.
+  We took our original data frame and piped it to mutate in order to seperate the outcomes into percentiles based on duration of the marketing call (Done twice; once for higher percentile and once for lower percentile).Then pipe into select to show only past marketing effectiveness, the duration of the marketing call, and the outcome of the whole campaign. Lastly pipe to filter to get the respective percentiles.
+  We also saw it fit to seperate the data into indiviual yes or no visualizations for the outcome of the campiagn. This just for ease of distinction. 
+  For plotting those who said no, we took our original data frame and piped it to mutate to seperate the outcomes into percentiles based on duration of the marketing call. Then we piped into select to show only past marketing effectiveness, the duration of the marketing call, and the outcome of the whole campaign, then piped that into filter to show only those who said no and below the 40th percentile.
+  For plotting those who said yes, we took our original data frame and piped it to mutate to seperate the outcomes into percentiles based on duration of the marketing call. Then we piped into select to show only past marketing effectiveness, the duration of the marketing call, and the outcome of the whole campaign, then piped that into filter to show only those who said yes and above the 80th percentile.
 
 ####Findings:
-What we came to find out was that they contacted many people that had not been contacted in previos marketing campaigns. The longer the duration of the call, we noticed, the higher probablility there was for a positive outcome. Negative outcomes seem to have been clustered closer together at the low end of call duration. Another trend is semmingly apparent, if past marketing was a failure there was a high probability of failure in the current campaign. And success in past campaigns correlated with more success in the current campaign as well.
+What was found was that the higher in the percentile of call duration the more likeley the individual was to purchase a term loan from the issuing bank. The ranges below the 40th percentile were almost wholly those who rejected the term loan. The ranges above the 80th percentile were substantially more inclined to take the offer on the term loan. All this still holds regardless of the outcome of the past marketing campaign. Whether past outcome was a success, a failure, or even non-existent, this trend seems to be the same.
 
 ***
 
