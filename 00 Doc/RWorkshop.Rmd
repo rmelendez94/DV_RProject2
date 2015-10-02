@@ -30,13 +30,12 @@ source("../02 Data Wrangling/BankEffort_PD.R", echo = TRUE)
 ```
 
 ####Method: 
-  We took our original data frame and piped it to mutate in order to seperate the outcomes into percentiles based on duration of the marketing call (Done twice; once for higher percentile and once for lower percentile).Then pipe into select to show only past marketing effectiveness, the duration of the marketing call, and the outcome of the whole campaign. Lastly pipe to filter to get the respective percentiles.
-  We also saw it fit to seperate the data into indiviual yes or no visualizations for the outcome of the campiagn. This just for ease of distinction. 
-  For plotting those who said no, we took our original data frame and piped it to mutate to seperate the outcomes into percentiles based on duration of the marketing call. Then we piped into select to show only past marketing effectiveness, the duration of the marketing call, and the outcome of the whole campaign, then piped that into filter to show only those who said no and below the 40th percentile.
-  For plotting those who said yes, we took our original data frame and piped it to mutate to seperate the outcomes into percentiles based on duration of the marketing call. Then we piped into select to show only past marketing effectiveness, the duration of the marketing call, and the outcome of the whole campaign, then piped that into filter to show only those who said yes and above the 80th percentile.
+  We took our original data frame and piped it to mutate in order to seperate the outcomes into percentiles based on duration of the marketing call.Then pipe into select to show only past marketing effectiveness, the duration of the marketing call, the outcome of the whole campaign, and the given percentiles. Lastly pipe to filter to show only the respective percentiles (below 20 and above 80).
+  For a better view at the data two more plots were added. The first showing the scope of only what is below the 20th percentile, and the second showing the scope of only what is above the 80th percentile
+  All of the plots were faceted in order to seperate yes and no responses for clarity.
 
 ####Findings:
-What was found was that the higher in the percentile of call duration the more likeley the individual was to purchase a term loan from the issuing bank. The ranges below the 40th percentile were almost wholly those who rejected the term loan. The ranges above the 80th percentile were substantially more inclined to take the offer on the term loan. All this still holds regardless of the outcome of the past marketing campaign. Whether past outcome was a success, a failure, or even non-existent, this trend seems to be the same.
+What was found was that the higher in the percentile of call duration the more likely the individual was to purchase a term loan from the issuing bank. The ranges below the 20th percentile were almost wholly those who rejected the term loan. The ranges above the 80th percentile were substantially more inclined to take the offer on the term loan. All this still holds regardless of the outcome of the past marketing campaign. Whether past outcome was a success, a failure, or even non-existent, this trend seems to be the same. One other small trend was that if in the past the marketing failed there was more inclination to fail this time, this not so true about successes.
 
 ***
 
