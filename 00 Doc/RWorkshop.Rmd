@@ -60,6 +60,7 @@ source("../02 Data Wrangling/SocioEconomic_EC.R", echo = TRUE)
 ####Method:
 
 ####Findings:
-
+** will edit later
+Basically, the first two graphs are optional, and are meant to show that there are comparable number of responses across education and marital status. The third graph is the focus, and is meant to indicate that as education level increases, age is no longer a significant factor in determining whether people accepted or declined the term loan. This indicates that younger people are more likely to be influenced by marketing if their education level is higher.
 ***
 
