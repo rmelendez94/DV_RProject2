@@ -22,6 +22,10 @@ sessionInfo()
 #Shows the subset and summary of the data frame
 source("../01 Data/R_Load.R", echo = TRUE)
 ```
+
+####Explanation of Data:
+This data relates to the direct marketing campaign of a Portuguese bank to have people subscribe to a term deposit at their institution. The campaign had gathered data regard their campaign efforts, individuals' demographics, and external socioeconomic situations at the time of the campaign. 
+
 ***
 ##Bank Effort Visualization
 ```{r}
@@ -46,8 +50,18 @@ source("../02 Data Wrangling/Demographics_AHP.R", echo = TRUE)
 ```
 
 ####Method:
+The question that we are trying to ask with these visualizations and R workflow is "What are the effects of age and other current loans on one's williness to apply for a term deposit?" 
+
+The R workflow for these visualizations looks for statistical measures (mean age, median age, standard deviation of age, and total count) of the sampled population, grouped by their current loans and their decision to apply for a term deposit with the bank.
+
+The two visualizations show how the target market of the bank's marketing campaign ranged in age based on their current loans, and they compare the size and proportion of those who successfully subscribed for a term deposit after the campaign to those who did not subscribe.
+The first visualization is a histogram that utilizes facet_grid to graph the count of the campaign target population's ages based on if they have a housing loan, if they have a personal loan and how they responded to the marketing campaign.
+The second visualization is a density plot that compares the relative density of age of those who subscribed to the term deposit to those who did not. This second visualization also uses facet_grid to further divide the two groups of respondents based on their current loan situation.
 
 ####Findings:
+Through the histogram visualization, we find that relative to those who have personal loans, those who do not have personal loans are more likely to subscribe to the term deposit regardless of if they have a housing loan. From the histogram, it is not clear whether this increase in campaign effectiveness is based on a real correlation between personal loan situations and willingness to subscribe to a term deposit, or if it is simply because much more of the data population do not have personal loans.
+
+The density plot visualization helps to better look into the correlation between personal loans and willingness to subscribe to a term deposit. Through this visualization, we conclude that age plays a role in the campaign response of those who do and do not have personal loans. We find that those who currently do not have personal loans are more willing to subscribe to a term deposit if they are in their lower-30s (in age) than those who already have personal loans. This is best showcased through the differences in density plots of those who have housing loans and do not have personal loans to those who have both housing and personal loans (top right and bottom right graphs). 
 
 ***
 
