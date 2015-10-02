@@ -3,23 +3,38 @@ require(dplyr)
 require(extrafont)
 require(ggplot2)
 
-tbl_df(df)
-View(df)
-
-# Social and Economic Context : Euribor & CPI
-ahp <- df %>% select(EURIBOR3M, CONS_PRICE_IDX, Y) %>% arrange(Y)
-
+# Social and Economic Factors
+#################################################################
+SE_1 <- df %>% select(EDUCATION, AGE, Y) %>% filter(EDUCATION!="unknown", EDUCATION!="illiterate") %>% arrange(Y)
 ggplot() + 
   coord_cartesian() + 
-  scale_x_continuous() +
+  scale_x_discrete() +
   scale_y_continuous() +
   labs(title='Portuguese Bank Marketing Campaign Effectiveness') +
-  labs(x="Euribor", y=paste("Consumer Price Index")) +
-  layer(data=ahp, 
-        mapping=aes(x=as.numeric(EURIBOR3M), y=as.numeric(CONS_PRICE_IDX), color=Y), 
+  labs(x=paste("MONTH"), y="AGE") +
+  layer(data=SE_1, 
+        mapping=aes(x=as.character(EDUCATION), y=as.numeric(AGE), color=Y),
         stat="identity",
         stat_params=list(),
         geom="point",
         geom_params=list(), 
         position=position_jitter(width=0.3, height=0)
   )
+#################################################################
+SE_2 <- df %>% select(MARITAL, AGE, Y) %>% filter(MARITAL!="unknown") %>% arrange(Y)
+ggplot() + 
+  coord_cartesian() + 
+  scale_x_discrete() +
+  scale_y_continuous() +
+  labs(title='Portuguese Bank Marketing Campaign Effectiveness') +
+  labs(x=paste("MONTH"), y="AGE") +
+  layer(data=SE_2, 
+        mapping=aes(x=as.character(MARITAL), y=as.numeric(AGE), color=Y),
+        stat="identity",
+        stat_params=list(),
+        geom="point",
+        geom_params=list(), 
+        position=position_jitter(width=0.3, height=0)
+  )
+#####################################################
+df %>% group_by(Y, MARITAL,EDUCATION) %>% filter(EDUCATION!="unknown", MARITAL!="unknown", EDUCATION!="illiterate", AGE <="65", AGE>= "10")  %>% summarise(mean_age = mean(AGE)) %>% ggplot(aes(x=MARITAL, y=mean_age, color=Y)) + geom_point() + facet_wrap(~EDUCATION)
