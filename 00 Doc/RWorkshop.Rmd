@@ -35,7 +35,7 @@ source("../02 Data Wrangling/BankEffort_PD.R", echo = TRUE)
   All of the plots were faceted in order to seperate yes and no responses for clarity.
 
 ####Findings:
-What was found was that the higher in the percentile of call duration the more likely the individual was to purchase a term loan from the issuing bank. The ranges below the 20th percentile were almost wholly those who rejected the term loan. The ranges above the 80th percentile were substantially more inclined to take the offer on the term loan. All this still holds regardless of the outcome of the past marketing campaign. Whether past outcome was a success, a failure, or even non-existent, this trend seems to be the same. One other small trend was that if in the past the marketing failed there was more inclination to fail this time, this not so true about successes.
+What was found was that the higher in the percentile of call duration the more likely the individual was to subscribe a term deposit for the issuing bank. The ranges below the 20th percentile were almost wholly those who rejected the term deposit. The ranges above the 80th percentile were substantially more inclined to take the offer on the term deposit. All this still holds regardless of the outcome of the past marketing campaign. Whether past outcome was a success, a failure, or even non-existent, this trend seems to be the same. One other small trend was that if in the past the marketing failed there was more inclination to fail this time, this not so true about successes.
 
 ***
 
@@ -61,6 +61,6 @@ source("../02 Data Wrangling/SocioEconomic_EC.R", echo = TRUE)
 
 ####Findings:
 ** will edit later
-Basically, the first two graphs are optional, and are meant to show that there are comparable number of responses across education and marital status. The third graph is the focus, and is meant to indicate that as education level increases, age is no longer a significant factor in determining whether people accepted or declined the term loan. This indicates that younger people are more likely to be influenced by marketing if their education level is higher.
+Basically, the first two graphs are optional, and are meant to show that there are comparable number of responses across education and marital status. The third graph is the focus, and is meant to indicate that as education level increases, age is no longer a significant factor in determining whether people accepted or declined to subscribe to term deposit. This indicates that younger people are more likely to be influenced by marketing if their education level is higher.
 ***
 
