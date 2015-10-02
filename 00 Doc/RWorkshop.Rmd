@@ -24,7 +24,7 @@ source("../01 Data/R_Load.R", echo = TRUE)
 ```
 
 ####Explanation of Data:
-This data relates to the direct marketing campaign of a Portuguese bank to have people subscribe to a term deposit at their institution. The campaign had gathered data regard their campaign efforts, individuals' demographics, and external socioeconomic situations at the time of the campaign. 
+This data relates to the direct marketing campaign of a Portuguese bank to have people subscribe to a term deposit at their institution. The campaign had gathered data regard their campaign efforts, individuals' demographics, and external social situations at the time of the campaign. 
 
 ***
 ##Bank Effort Visualization
@@ -65,10 +65,10 @@ The density plot visualization helps to better look into the correlation between
 
 ***
 
-##Socioeconomic Visualization
+##Social Factors Visualization
 ```{r}
 #Shows the subset and summary of the data frame
-source("../02 Data Wrangling/SocioEconomic_EC.R", echo = TRUE)
+source("../02 Data Wrangling/SocialFactors_EC.R", echo = TRUE)
 ```
 
 ####Method:
