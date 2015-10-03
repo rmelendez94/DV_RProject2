@@ -34,7 +34,10 @@ source("../02 Data Wrangling/BankEffort_PD.R", echo = TRUE)
 ```
 
 ####Method: 
+  These visualizations are here to show the relationship between duration of marketing call and outcome of the marketing campaign on individuals. Also shown is the category of whether the past marketing campaign was effective. 
+  
   We took our original data frame and piped it to mutate in order to seperate the outcomes into percentiles based on duration of the marketing call.Then pipe into select to show only past marketing effectiveness, the duration of the marketing call, the outcome of the whole campaign, and the given percentiles. Lastly pipe to filter to show only the respective percentiles (below 20 and above 80).
+  
   For a better view at the data two more plots were added. The first showing the scope of only what is below the 20th percentile, and the second showing the scope of only what is above the 80th percentile
   All of the plots were faceted in order to seperate yes and no responses for clarity.
 
